@@ -1,4 +1,4 @@
-/*@file psn-epoll.cpp
+/*@file epoll.cpp
  *
  * MIT License
  *
@@ -23,19 +23,21 @@
  * SOFTWARE.
  */
 #include "epoll.h"
+#ifdef _WIN32
 #include <bcrypt.h>
+#include <mswsock.h>
+#endif
 #include <map>
 #include <mutex>
 #include <errno.h>
 #include <assert.h>
-#include <mswsock.h>
 
-#define EPOLL_MAX_FD 2000000
-#define IOCTL_AFD_POLL 0x00012024
-
-static std::recursive_mutex m1;
 
 #ifdef _WIN32
+#define EPOLL_MAX_FD 2000000
+#define IOCTL_AFD_POLL 0x00012024
+static std::recursive_mutex m1;
+
 enum class epoll_status {
     EPOLL_IDLE,
     EPOLL_PENDING,

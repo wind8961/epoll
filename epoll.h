@@ -1,4 +1,4 @@
-/*@file psn-epoll.h
+/*@file epoll.h
  *
  * MIT License
  *
@@ -42,12 +42,12 @@
 #define EPOLLERR     (AFD_POLL_ABORT | AFD_POLL_CONNECT_FAIL)
 #define EPOLLHUP     (AFD_POLL_DISCONNECT | AFD_POLL_LOCAL_CLOSE)
 #define EPOLLRDNORM  AFD_POLL_ACCEPT
-#define EPOLLRDBAND  2048
+#define EPOLLRDBAND  2048 // not supported yet
 #define EPOLLWRNORM  (AFD_POLL_SEND | AFD_POLL_RECEIVE)
-#define EPOLLWRBAND  4096
+#define EPOLLWRBAND  4096 // not supported yet
 #define EPOLLRDHUP   (AFD_POLL_RECEIVE | AFD_POLL_DISCONNECT | AFD_POLL_LOCAL_CLOSE)
 #define EPOLLONESHOT 512
-#define EPOLLET 1024
+#define EPOLLET 1024 // not supported yet
 
 #define EPOLL_CTL_ADD 1
 #define EPOLL_CTL_MOD 2
