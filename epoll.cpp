@@ -250,6 +250,7 @@ void close(int epfd) {
         free(iter->second);
     }
     mevents.clear();
+    mevents_copy.clear();
 }
 
 static int _epollreqpoll(int fd, pepoll_info epoll_info) {
